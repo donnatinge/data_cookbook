@@ -1,0 +1,1 @@
+select * from dual, lateral split_to_table(regexp_replace('abcde','.',',\\0',2), ',') lat
