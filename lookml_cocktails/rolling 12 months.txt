@@ -1,0 +1,22 @@
+The requirement is to get rolling 12 months of data from a prompted report date.
+The view has a column report_date which I used in the logic to filter the report. 
+
+Example 1. This example uses Snowflake.
+
+1.1 Create a parameter and filter in the view in LookML. 
+	A parameter holds the value of a variable, in this case the prompted report date.
+	Define the logic in the filter where value of parameter is between we months ago and report date.
+
+  parameter: date_of_report {
+    type: date
+    label: "Date of Report"
+    suggestable: no
+  }
+
+  filter: rolling_12_mos {
+    type: yesno
+    sql: case when ${report_date} between dateadd(month,-12,{% parameter date_of_report %}) and {% parameter date_of_report %} then TRUE else FALSE end;;
+  }
+
+1.2 Create the look and use rolling_12_mos = Yes
+1.3 Create a dashboard filter using the parameter

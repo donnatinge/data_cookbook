@@ -1,4 +1,4 @@
-The requirement was to get a random sample from hundreds of thousands of rows.
+The requirement is to get a random sample from hundreds of thousands of rows.
 The idea is to generate a random number to sort the result set then apply a limit to get a random sample.
 
 Example 1. 
@@ -15,7 +15,7 @@ Example 1.
 
 Example 2. If the sample needs to be taken from a combination of columns, I devised a not-so-uniform way of getting a sample.
 
-2.1 Generate a rank in the PDT based on multiple columns then order by an ETL process table_id
+2.1 Generate a rank in the PDT based on multiple columns then order by an ETL process table_id.
 
   dimension: rank_account {
     type: number
